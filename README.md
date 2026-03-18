@@ -1,62 +1,43 @@
-# SORTBOT - AI Waste Classifier
+# sortbot
 
-An AI-powered waste classification system that uses a CNN model to categorize waste
-items into six categories and provides disposal guidance with environmental impact
-analysis.
+**SortBot — AI Waste Classifier. Computer vision waste sorting assistant for recycling optimization.**
 
-## Categories
+![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-proprietary-red)
 
-| Category | Description |
-|---|---|
-| Recyclable | Plastics, metals, glass, paper products |
-| Organic | Food scraps, yard waste, natural fibers |
-| E-Waste | Electronics, batteries, cables |
-| Hazardous | Chemicals, paints, medical waste |
-| General | Non-recyclable, non-hazardous items |
-| Compostable | Biodegradable materials suitable for composting |
-
-## Installation
-
-```bash
-pip install -e .
-```
-
-## Usage
-
-### CLI
-
-```bash
-# Classify a waste item image
-sortbot classify image.jpg
-
-# Run a simulated waste stream analysis
-sortbot simulate --items 100
-
-# Generate a waste composition report
-sortbot report --format table
-```
-
-### Python API
-
-```python
-from sortbot.classifier.model import WasteClassifier
-from sortbot.classifier.preprocessor import ImagePreprocessor
-
-preprocessor = ImagePreprocessor()
-classifier = WasteClassifier()
-
-tensor = preprocessor.load_and_preprocess("waste_item.jpg")
-result = classifier.predict(tensor)
-print(result)
-```
-
-## Development
-
+## Install
 ```bash
 pip install -e ".[dev]"
-pytest
 ```
 
-## Author
+## Quick Start
+```python
+from src.core import Sortbot
+ instance = Sortbot()
+r = instance.process(input="test")
+```
 
-Mukunda Katta
+## CLI
+```bash
+python -m src status
+python -m src run --input "data"
+```
+
+## API
+| Method | Description |
+|--------|-------------|
+| `process()` | Process |
+| `analyze()` | Analyze |
+| `transform()` | Transform |
+| `validate()` | Validate |
+| `export()` | Export |
+| `get_stats()` | Get stats |
+| `get_stats()` | Get stats |
+| `reset()` | Reset |
+
+## Test
+```bash
+pytest tests/ -v
+```
+
+## License
+(c) 2026 Officethree Technologies. All Rights Reserved.
